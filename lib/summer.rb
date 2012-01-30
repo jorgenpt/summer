@@ -24,7 +24,12 @@ module Summer
       unless dry
         loop do
           startup! if @ready && !@started
-          parse(@connection.gets)
+          message = @connection.gets
+          if message
+            parse(message)
+          else
+            break
+          end
         end
       end
     end
