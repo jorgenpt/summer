@@ -20,9 +20,7 @@ Jeweler::Tasks.new do |gem|
   gem.email = "radarlistener@gmail.com"
   gem.homepage = "http://github.com/radar/summer"
   gem.authors = ["Ryan Bigg"]
-  gem.license = "MIT"
-  # gem.add_dependency("activerecord", ">= 2.3.5")
-  # gem.add_dependency("activesupport", ">= 2.3.5")
+  gem.add_dependency("activesupport", "~> 3.2.1")
   gem.files = Dir["lib/**/*.rb"]
 end
 Jeweler::RubygemsDotOrgTasks.new
