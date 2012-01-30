@@ -108,6 +108,8 @@ module Summer
         join(channel) if words[3] == me && config[:auto_rejoin]
       elsif raw == "MODE"
         really_try(:mode, parse_sender(sender), channel, words[3], words[4..-1].clean)
+      elsif raw == "TOPIC"
+        really_try(:topic, parse_sender(sender), channel, words[3..-1].clean)
       end
 
     end
