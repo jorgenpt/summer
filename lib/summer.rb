@@ -38,6 +38,8 @@ module Summer
 
     def load_config
       @config = HashWithIndifferentAccess.new(YAML::load_file(File.dirname($0) + "/config/summer.yml"))
+      @config[:channels] ||= []
+      @config[:channels] << @config.delete(:channel) if @config[:channel]
     end
 
     def connect!
@@ -50,7 +52,7 @@ module Summer
     # Will join channels specified in configuration.
     def startup!
       nickserv_identify if @config[:nickserv_password]
-      (@config[:channels] << @config[:channel]).compact.each do |channel|
+      config[:channels].each do |channel|
         join(channel)
       end
       @started = true
