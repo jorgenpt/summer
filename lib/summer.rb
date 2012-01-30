@@ -20,7 +20,7 @@ module Summer
 
       load_config
       connect!
-      
+
       unless dry
         loop do
           startup! if @ready && !@started
@@ -43,7 +43,7 @@ module Summer
     end
 
     def connect!
-      @connection = TCPSocket.open(server, port)      
+      @connection = TCPSocket.open(server, port)
       response("USER #{config[:nick]} #{config[:nick]} #{config[:nick]} #{config[:nick]}")
       response("NICK #{config[:nick]}")
     end
@@ -58,7 +58,7 @@ module Summer
       @started = true
       really_try(:did_start_up) if respond_to?(:did_start_up)
     end
-    
+
     def nickserv_identify
       privmsg("nickserv", "register #{@config[:nickserv_password]} #{@config[:nickserv_email]}")
       privmsg("nickserv", "identify #{@config[:nickserv_password]}")
@@ -139,7 +139,7 @@ module Summer
     def me
       config[:nick]
     end
-    
+
     def log(message)
       File.open(config[:log_file]) { |file| file.write(message) } if config[:log_file]
     end

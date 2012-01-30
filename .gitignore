@@ -1,5 +1,28 @@
-*.sw?
+# Editor / OS specific.
 .DS_Store
+*.tmproj
+tmtags
+*~
+\#*
+.\#*
+*.swp
+
+# rcov generated
 coverage
+coverage.data
+
+# rdoc generated
 rdoc
+
+# yard generated
+doc
+.yardoc
+
+# bundler
+.bundle
+
+# jeweler generated
 pkg
+
+# Don't ship Gemfile.lock for a gem.
+Gemfile.lock
